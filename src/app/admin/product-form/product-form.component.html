@@ -26,8 +26,8 @@
         <label for="category">Category</label>
         <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
           <option value="">Select Option</option>
-          <option *ngFor="let c of categories$ | async" [value]="c.key">
-            {{ c.payload.val().name }}
+          <option *ngFor="let c of categories$ | async" [value]="c.id">
+            {{ c.name }}
           </option>
         </select>
         <div class="alert alert-danger" *ngIf="category.touched && category.invalid">Category is required.</div>
@@ -50,13 +50,7 @@
   </div>
 
   <div class="col-md-6">
-    <div class="card" *ngIf="product.title">
-      <img [src]="product.imageUrl" class="card-img-top img-fluid" *ngIf="product.imageUrl">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.title }}</h5>
-        <p class="card-text">{{ product.price | currency:'USD' }}</p>
-      </div>
-    </div>
+    <app-product-card [product]="product" [show-actions]="false"></app-product-card>
   </div>
 
 </div>
