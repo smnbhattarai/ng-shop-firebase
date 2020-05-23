@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Product } from './models/product';
 import { take } from 'rxjs/operators';
 import { ShoppingCart } from './models/shopping-cart';
