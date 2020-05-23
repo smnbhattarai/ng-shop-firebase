@@ -13,17 +13,17 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   filteredProducts: any[];
   subscription: Subscription;
 
-  constructor(private productService: ProductService) { 
+  constructor(private productService: ProductService) {
     this.subscription = this.productService.getAll().subscribe(
       products => {
         this.filteredProducts = this.products = products;
       }
-      );
+    );
   }
 
   filter(query: string) {
     this.filteredProducts = (query) ?
-    this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
+      this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
   }
 
   ngOnInit() {

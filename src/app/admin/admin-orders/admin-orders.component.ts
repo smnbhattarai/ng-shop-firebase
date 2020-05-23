@@ -10,7 +10,7 @@ export class AdminOrdersComponent implements OnInit {
   orders$;
   constructor(private orderService: OrderService) {
     this.orders$ = orderService.getOrders().valueChanges();
-   }
+  }
 
   ngOnInit() {
   }

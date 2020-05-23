@@ -11,16 +11,16 @@ export class CategoryService {
 
   getAll() {
     return this.db.list('categories')
-        .snapshotChanges()
-        .pipe(
-            map(changes =>
-                changes.map(c => {
-                    const data = c.payload.val() as Object;
-                    const id = c.payload.key;
-                    return { id, ...data };
-                })
-            )
-        );
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c => {
+            const data = c.payload.val() as Object;
+            const id = c.payload.key;
+            return { id, ...data };
+          })
+        )
+      );
   }
 
 }

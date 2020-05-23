@@ -7,7 +7,7 @@ import { ShoppingCart } from '../models/shopping-cart';
   styleUrls: ['./shopping-cart-summary.component.scss']
 })
 export class ShoppingCartSummaryComponent implements OnInit {
-@Input('cart') cart: ShoppingCart;
+  @Input('cart') cart: ShoppingCart;
   constructor() { }
 
   ngOnInit() {

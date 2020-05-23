@@ -4,7 +4,8 @@
 
       <div class="form-group">
         <label for="title">Title</label>
-        <input #title="ngModel" [(ngModel)]="product.title" name="title" type="text" id="title" class="form-control" required>
+        <input #title="ngModel" [(ngModel)]="product.title" name="title" type="text" id="title" class="form-control"
+          required>
         <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Title is required.</div>
       </div>
 
@@ -14,7 +15,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
           </div>
-          <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price" required [min]="0">
+          <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price"
+            required [min]="0">
         </div>
         <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
           <div *ngIf="price.errors.required">Price is required.</div>
@@ -24,7 +26,8 @@
 
       <div class="form-group">
         <label for="category">Category</label>
-        <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+        <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control"
+          required>
           <option value="">Select Option</option>
           <option *ngFor="let c of categories$ | async" [value]="c.id">
             {{ c.name }}
@@ -35,8 +38,8 @@
 
       <div class="form-group">
         <label for="imageUrl">Image URL</label>
-        <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" type="url" id="imageUrl" class="form-control" required
-          pattern="https?://.+">
+        <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" type="url" id="imageUrl"
+          class="form-control" required pattern="https?://.+">
         <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
           <div *ngIf="imageUrl.errors.required">Image URL is required.</div>
           <div *ngIf="imageUrl.errors.pattern">please enter valid URL.</div>

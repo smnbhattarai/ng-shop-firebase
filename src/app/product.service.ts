@@ -17,29 +17,29 @@ export class ProductService {
 
   getAll(): Observable<Product[]> {
     return this.db.list<Product>('/products')
-        .snapshotChanges()
-        .pipe(
-            map(changes =>
-                changes.map(c => {
-                    const data = c.payload.val() as Product;
-                    const id = c.payload.key;
-                    return { id, ...data };
-                })
-            )
-        );
-}
+      .snapshotChanges()
+      .pipe(
+        map(changes =>
+          changes.map(c => {
+            const data = c.payload.val() as Product;
+            const id = c.payload.key;
+            return { id, ...data };
+          })
+        )
+      );
+  }
 
   get(productId) {
     return this.db.object('/products/' + productId)
-    .snapshotChanges()
-    .pipe(
-      map(c => {
-        const data = c.payload.val() as Product;
-        const id = c.payload.key;
-        return { id, ... data };
-      })
-    )
-    ;
+      .snapshotChanges()
+      .pipe(
+        map(c => {
+          const data = c.payload.val() as Product;
+          const id = c.payload.key;
+          return { id, ...data };
+        })
+      )
+      ;
   }
 
   update(productId, product) {

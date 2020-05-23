@@ -2,17 +2,17 @@
 <p>List of all orders placed in the store!</p>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Customer</th>
-            <th>Date</th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+    </tr>
+  </thead>
 
-    <tbody>
-        <tr *ngFor="let o of orders$ | async">
-            <td>{{ o.shipping.name }}</td>
-            <td>{{ o.datePlaced | date }}</td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr *ngFor="let o of orders$ | async">
+      <td>{{ o.shipping.name }}</td>
+      <td>{{ o.datePlaced | date }}</td>
+    </tr>
+  </tbody>
 </table>
